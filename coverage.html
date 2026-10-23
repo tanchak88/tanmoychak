@@ -39,26 +39,28 @@
 		}
 
 		.card-container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 20px;
 		}
 
 		.card {
-			width: 45%;
-			margin-bottom: 20px;
+			width: 100%;
 			background-color: #fff;
 			border: 1px solid #ddd;
 			border-radius: 8px;
 			overflow: hidden;
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			box-sizing: border-box;
 		}
 
 		#cardimg {
 			width: 100%;
-			height: auto;
+			height: clamp(160px, 22vw, 240px);
 			border-bottom: 1px solid #ddd;
 			border-radius: 0;
+			object-fit: cover;
+			display: block;
 		}
 
 		.card-body {
@@ -87,6 +89,20 @@
 			color: #fff;
 			text-decoration: none;
 			border-radius: 4px;
+		}
+
+		@media screen and (max-width: 768px) {
+			.card-container {
+				gap: 16px;
+			}
+
+			.card {
+				width: 100%;
+			}
+
+			#cardimg {
+				height: clamp(160px, 56vw, 230px);
+			}
 		}
 	</style>
 </head>
@@ -120,6 +136,27 @@
 				<h2>Media Coverage</h2>
 
 				<div class="card-container">
+
+
+					<div class="card">
+						<img id="cardimg" src="images/media/34.jpg" alt="Media interview video thumbnail">
+						<div class="card-body">
+							<h5 class="card-title">Small AI Models, Bigger Impact | IIT Delhi’s Research on the Future of AI</h5>
+							<p style="text-align: left;"><small>October 19, 2026</small></p>
+							<p class="card-text">Watch me explore how Small Language Models (SLMs) could help make AI more accessible, affordable and efficient.</p>
+							<a href="https://youtu.be/OgS1qk9bcVA" class="btn btn-primary">Watch the Video</a>
+						</div>
+					</div>
+
+					<div class="card">
+						<img id="cardimg" src="images/media/33.jpg" alt="Media interview video thumbnail">
+						<div class="card-body">
+							<h5 class="card-title">Can India Build Frontier AI? | Podcast with Ryan</h5>
+							<p style="text-align: left;"><small>September 26, 2026</small></p>
+							<p class="card-text">Watch me discussing the limits of scaling large language models, where smaller models are useful, and what India needs to build its own AI capabilities.</p>
+							<a href="https://youtu.be/XyI9YlFjwZw" class="btn btn-primary">Watch the Video</a>
+						</div>
+					</div>
 
 					<div class="card">
 						<img id="cardimg" src="images/media/32.png" alt="Card Image">
